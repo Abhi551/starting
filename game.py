@@ -148,3 +148,74 @@ class Map(object):
 a_map=Map("central_corridor");
 a_game=Engine(a_map);
 a_game.play();
+
+
+def gold_room():
+	print "this room is full of gold. How much  do u need ?????";
+	print "ur  choice";
+	next=input(">");
+
+	if next<52:
+		print "Nice , u r not greedy";
+		print "u win.........";
+		exit(0);
+	else :
+		dead("u r greedy");
+
+def bear_room():
+	print "there is a bear ";
+	print "he has honey and is sitting in front of another door";
+	print "what u r going to do?????????";
+	bear_moved=False;
+	print "you will have following choices \n 1. take honey \n 2. taunt bear ";
+	while True:
+		next=raw_input(">");
+
+		if next=="take honey":
+			dead("the bear looks at u and slapps u.");
+		elif next=="taunt bear" and not bear_moved:
+			print "the bear moved , u r safe ";
+			bear_moved=True;
+			print "what next???????";
+			print "ur choices are \n 1. open door \n2. taunt bear";
+			next=raw_input(">");
+			if next=="taunt bear" and bear_moved:
+				dead("the bear is pissed off and kill u");
+			elif next=="open door" and bear_moved:
+				gold_room();
+		else :
+			print "print again";
+
+def cthulhu_room():
+	print "here u see great evil Cthulhu";
+	print "He stares at you and you go insane";
+	print "Do you flee or eat ur head";
+
+	next=raw_input(">");
+
+	if "flee" in next:
+		start();
+	elif "head" in next :
+		dead("well that was tasty");
+	else :
+		cthulhu_room();
+
+def dead(why):
+	print why,"good job";
+	exit(0);
+
+def start():
+	print "you r in a dark room";
+	print "there is door to your right and left ";
+	print "ur choice ????????";
+	next=raw_input(">");
+
+	if next=="left":	
+		bear_room();
+	elif next=="right":
+		cthulhu_room();
+	else : 
+		dead("u r lostb in a maze forever till u starve and die");
+
+
+
