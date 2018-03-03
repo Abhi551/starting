@@ -24,8 +24,13 @@ if re.search(sub_string,sub_string):
 else:http://www.summet.com/dmsi/html/codesamples/addresses.html
 	print ("No match")
 
-
+## re.compile()
+## what does it do??
+## it converts pattern into pattern object
 ## searching a speacial word such that it ends with "at"
+name="Abhishek"
+check=re.compile("[A-Za-z]")
+print (check.search(name))
 
 sub_string=r'.at'
 print (re.search(sub_string,string))
